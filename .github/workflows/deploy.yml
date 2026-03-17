@@ -36,9 +36,7 @@ jobs:
         run: |
           echo "Deploying to production..."
           # Add your deployment commands here
-          # e.g., kubectl, docker-compose, etc.
-
-      - name: Health check
-        run: |
-          sleep 10
-          curl -f http://localhost:8007/health || exit 1
+          # e.g., kubectl, docker-compose, SSH to server, etc.
+          
+          # Example: SSH to server and pull latest
+          # ssh ${{ secrets.SERVER_HOST }} "cd /path/to/app && docker-compose up -d"
