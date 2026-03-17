@@ -2,8 +2,9 @@ import { getPosts, getPageBySlug, getSiteSettings } from '@/lib/wordpress'
 
 // Mock the GraphQL client
 jest.mock('graphql-request', () => ({
+  gql: (strings: TemplateStringsArray) => strings.join(''),
   GraphQLClient: jest.fn().mockImplementation(() => ({
-    request: jest.fn(),
+    request: jest.fn().mockResolvedValue({ posts: { nodes: [] } }),
   })),
 }))
 
