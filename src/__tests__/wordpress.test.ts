@@ -4,7 +4,15 @@ import { getPosts, getPageBySlug, getSiteSettings } from '@/lib/wordpress'
 jest.mock('graphql-request', () => ({
   gql: (strings: TemplateStringsArray) => strings.join(''),
   GraphQLClient: jest.fn().mockImplementation(() => ({
-    request: jest.fn().mockResolvedValue({ posts: { nodes: [] } }),
+    request: jest.fn().mockImplementation((query) => {
+      if (query.includes('GetPageBySlug')) {
+        return Promise.resolve({ page: { id: '1', title: 'Home', content: '', slug: 'home' } })
+      }
+      if (query.includes('GetSiteSettings')) {
+        return Promise.reject(new Error('Network error'))
+      }
+      return Promise.resolve({ posts: { nodes: [] } })
+    }),
   })),
 }))
 
