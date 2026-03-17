@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGENTECH | Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 900px;
+            padding: 2rem;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+        .title span {
+            font-family: "Saira Semi Condensed", sans-serif;
+            font-style: normal;
+            font-weight: 900;
+        }
+
+        .coming-soon {
+            font-size: clamp(3rem, 12vw, 8rem);
+            font-weight: 900;
+            line-height: 1.1;
+            
+            letter-spacing: -0.07em;
+        }
+
+        .footer {
+            padding: 2rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .title {
+                font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+            }
+            
+            .coming-soon {
+                font-size: clamp(2.5rem, 10vw, 6rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.25rem;
+            }
+            
+            .title {
+                font-size: clamp(1rem, 3vw, 1.5rem);
+                margin-bottom: 1.5rem;
+            }
+            
+            .coming-soon {
+                font-size: clamp(2rem, 8vw, 4rem);
+                letter-spacing: -0.05em;
+            }
+            
+            .social-links {
+                gap: 1rem;
+            }
+            
+            .social-link {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .footer {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .title {
+                font-size: clamp(0.875rem, 4vw, 1.25rem);
+                margin-bottom: 1.25rem;
+                letter-spacing: 0.02em;
+            }
+            
+            .coming-soon {
+                font-size: clamp(1.75rem, 10vw, 3rem);
+                letter-spacing: -0.03em;
+            }
+            
+            .social-links {
+                gap: 0.75rem;
+            }
+            
+            .social-link {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .social-link svg {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .footer {
+                padding: 1rem;
+            }
+            
+            .copyright {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .title {
+                font-size: 0.75rem;
+            }
+            
+            .coming-soon {
+                font-size: 1.5rem;
+            }
+            
+            .social-link {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        /* Landscape orientation on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            body {
+                justify-content: center;
+                padding: 1rem 0;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .title {
+                margin-bottom: 1rem;
+            }
+            
+            .coming-soon {
+                font-size: clamp(1.5rem, 8vw, 3rem);
+            }
+            
+            .footer {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="title"><span>Ngentech Co.</span> — The future of Technology with deep research</p>
+        <h1 class="coming-soon">Coming Soon!</h1>
+    </div>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://x.com/ngentechco" class="social-link" title="Twitter">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            <a href="https://github.com/ngentechco" class="social-link" title="GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+        </div>
+        <p class="copyright">&copy; 2026 Ngentech. All rights reserved.</p>
+    </footer>
+</body>
+</html>
