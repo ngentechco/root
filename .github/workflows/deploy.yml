@@ -9,6 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - uses: actions/checkout@v4
@@ -35,10 +38,10 @@ jobs:
       - name: Build and push Docker image to GHCR
         run: |
           docker build -t ngentech-root:${{ github.sha }} .
-          docker tag ngentech-root:${{ github.sha }} ghcr.io/ngentechco/root/ngentech-root:latest
-          docker tag ngentech-root:${{ github.sha }} ghcr.io/ngentechco/root/ngentech-root:${{ github.sha }}
-          docker push ghcr.io/ngentechco/root/ngentech-root:latest
-          docker push ghcr.io/ngentechco/root/ngentech-root:${{ github.sha }}
+          docker tag ngentech-root:${{ github.sha }} ghcr.io/ngentechco/root:latest
+          docker tag ngentech-root:${{ github.sha }} ghcr.io/ngentechco/root:${{ github.sha }}
+          docker push ghcr.io/ngentechco/root:latest
+          docker push ghcr.io/ngentechco/root:${{ github.sha }}
 
       - name: Deploy to production
         uses: appleboy/ssh-action@v1.0.0
@@ -49,7 +52,7 @@ jobs:
           script: |
             cd /home/nekwasar/NGENTECH/root
             docker login ghcr.io -u ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
-            docker pull ghcr.io/ngentechco/root/ngentech-root:latest
+            docker pull ghcr.io/ngentechco/root:latest
             docker-compose down
             docker-compose up -d
             echo "Deployment complete!"
