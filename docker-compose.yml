@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Next.js Frontend
   root:
@@ -14,12 +12,12 @@ services:
       - NODE_ENV=production
       - SERVICE_NAME=root
       - SERVICE_PORT=8007
-      - DATABASE_URL=${DATABASE_URL:-postgresql://user:pass@postgres:5432/root_db}
-      - WORDPRESS_API_URL=http://wordpress:8008/graphql
+      - DATABASE_URL=${DATABASE_URL:-mysql://user:pass@mysql:3306/root_db}
+      - WORDPRESS_API_URL=http://wordpress:80/graphql
     networks:
       - ecosystem_network
     depends_on:
-      postgres:
+      mysql:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8007/health"]
@@ -35,7 +33,7 @@ services:
     ports:
       - "8008:80"
     environment:
-      - WORDPRESS_DB_HOST=postgres
+      - WORDPRESS_DB_HOST=mysql
       - WORDPRESS_DB_NAME=wordpress
       - WORDPRESS_DB_USER=wp_user
       - WORDPRESS_DB_PASSWORD=wp_pass
@@ -45,25 +43,25 @@ services:
     networks:
       - ecosystem_network
     depends_on:
-      postgres:
+      mysql:
         condition: service_healthy
 
-  # PostgreSQL Database (Shared)
-  postgres:
-    image: postgres:15-alpine
+  # MySQL Database (Shared)
+  mysql:
+    image: mysql:8.0
     container_name: ngentech_root_db
     restart: unless-stopped
     environment:
-      POSTGRES_DB: root_db
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
-      POSTGRES_MULTIPLE_DATABASES: wordpress
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: root_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
     volumes:
-      - root_db_data:/var/lib/postgresql/data
+      - root_db_data:/var/lib/mysql
     networks:
       - ecosystem_network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U user -d root_db"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpass"]
       interval: 10s
       timeout: 5s
       retries: 5
