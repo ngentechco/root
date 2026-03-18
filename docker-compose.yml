@@ -7,7 +7,7 @@ services:
     container_name: ngentech_root
     restart: unless-stopped
     ports:
-      - "8007:8007"
+      - "8017:8007"
     environment:
       - NODE_ENV=production
       - SERVICE_NAME=root
@@ -31,13 +31,13 @@ services:
     container_name: ngentech_wordpress
     restart: unless-stopped
     ports:
-      - "8008:80"
+      - "8018:80"
     environment:
       - WORDPRESS_DB_HOST=mysql
       - WORDPRESS_DB_NAME=wordpress
       - WORDPRESS_DB_USER=wp_user
       - WORDPRESS_DB_PASSWORD=wp_pass
-      - WORDPRESS_TABLE_PREFIX=wp_
+      - WORDPRESS_TABLE_PREFIX=ngen_
     volumes:
       - wordpress_data:/var/www/html
     networks:
