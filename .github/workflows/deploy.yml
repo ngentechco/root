@@ -25,12 +25,20 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: Build and push Docker image
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image to GHCR
         run: |
           docker build -t ngentech-root:${{ github.sha }} .
-          docker tag ngentech-root:${{ github.sha }} ngentech-root:latest
-          # Push to registry (configure with your registry)
-          # docker push ngentech-root:latest
+          docker tag ngentech-root:${{ github.sha }} ghcr.io/ngentechco/root/ngentech-root:latest
+          docker tag ngentech-root:${{ github.sha }} ghcr.io/ngentechco/root/ngentech-root:${{ github.sha }}
+          docker push ghcr.io/ngentechco/root/ngentech-root:latest
+          docker push ghcr.io/ngentechco/root/ngentech-root:${{ github.sha }}
 
       - name: Deploy to production
         run: |
