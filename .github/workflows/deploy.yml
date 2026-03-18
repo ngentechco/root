@@ -41,10 +41,15 @@ jobs:
           docker push ghcr.io/ngentechco/root/ngentech-root:${{ github.sha }}
 
       - name: Deploy to production
-        run: |
-          echo "Deploying to production..."
-          # Add your deployment commands here
-          # e.g., kubectl, docker-compose, SSH to server, etc.
-          
-          # Example: SSH to server and pull latest
-          # ssh ${{ secrets.SERVER_HOST }} "cd /path/to/app && docker-compose up -d"
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /home/nekwasar/NGENTECH/root
+            docker login ghcr.io -u ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
+            docker pull ghcr.io/ngentechco/root/ngentech-root:latest
+            docker-compose down
+            docker-compose up -d
+            echo "Deployment complete!"
