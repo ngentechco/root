@@ -27,7 +27,7 @@ services:
 
   # WordPress (Headless CMS with WPGraphQL)
   wordpress:
-    image: wordpress:php8.2-fpm-alpine
+    image: wordpress:php8.2-apache
     container_name: ngentech_wordpress
     restart: unless-stopped
     ports:
