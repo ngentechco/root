@@ -1,0 +1,17 @@
+{
+  "report": {
+    "id": "research-web3-2026",
+    "slug": "web3-2026",
+    "topic": "Web3",
+    "timeframe": { "from": 2009, "to": 2026 },
+    "status": "completed",
+    "totalNiches": 100,
+    "completedNiches": 100,
+    "avgReliabilityScore": 0.87,
+    "sentimentDistribution": { "bullish": 45, "bearish": 20, "neutral": 35 },
+    "category": "Blockchain & Web3",
+    "tags": ["web3", "blockchain", "defi", "zkp"],
+    "publishedAt": "2026-03-28T10:00:00Z",
+    "nicheCount": 3
+  }
+}

@@ -1,0 +1,5 @@
+[
+  { "name": "defi-tvl", "trend": "increasing" },
+  { "name": "nft-volume", "trend": "decreasing" },
+  { "name": "developer-activity", "trend": "increasing" }
+]

@@ -4,43 +4,142 @@
 
 :root {
   --bg-primary: #000000;
+  --foreground: #ffffff;
+  --foreground-muted: rgba(255, 255, 255, 0.6);
+  --foreground-faint: rgba(255, 255, 255, 0.4);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--bg-primary);
+  color: var(--foreground);
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
 }
 
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.8; }
+/* Custom thin scrollbar — black & white */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
-@keyframes fade-in-up {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), sans-serif;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
-@keyframes glow-pulse {
-  0%, 100% { 
-    text-shadow: 0 0 20px rgba(255,255,255,0.3), 0 0 40px rgba(255,255,255,0.1);
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@layer components {
+  /* Futurism background: subtle white grid */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
   }
-  50% { 
-    text-shadow: 0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.3);
+
+  .grid-bg-fine {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Radial white glow */
+  .radial-glow {
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+  }
+
+  /* Gradient text (white → grey) */
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff, #a0a0a0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Section label: tiny uppercase wide-track */
+  .label {
+    @apply text-[10px] uppercase tracking-[0.35em] text-white/40;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-white/50;
+  }
+
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  /* Cards */
+  .card {
+    @apply relative border border-white/10 bg-white/[0.03] backdrop-blur-md transition-all duration-500;
+  }
+  .card-hover {
+    @apply hover:border-white/30 hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(255,255,255,0.06)];
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3 text-sm font-medium tracking-wider transition-all duration-300;
+  }
+  .btn-primary {
+    @apply btn bg-white text-black hover:bg-white/80 hover:shadow-[0_0_24px_rgba(255,255,255,0.35)];
+  }
+  .btn-secondary {
+    @apply btn border border-white/30 text-white hover:border-white hover:bg-white/5;
+  }
+  .btn-ghost {
+    @apply btn text-white/50 hover:text-white;
+  }
+
+  .input {
+    @apply w-full bg-transparent border border-white/15 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-white/50;
   }
 }
 
-.animate-fade-in {
-  animation: fade-in-up 1s ease-out forwards;
+/* Scroll reveal helper */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-
-.animate-glow {
-  animation: glow-pulse 3s ease-in-out infinite;
-}
-
-.grid-bg {
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 80px 80px;
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

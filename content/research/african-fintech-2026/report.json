@@ -1,0 +1,17 @@
+{
+  "report": {
+    "id": "research-african-fintech-2026",
+    "slug": "african-fintech-2026",
+    "topic": "African Fintech",
+    "timeframe": { "from": 2010, "to": 2026 },
+    "status": "completed",
+    "totalNiches": 80,
+    "completedNiches": 80,
+    "avgReliabilityScore": 0.81,
+    "sentimentDistribution": { "bullish": 55, "bearish": 12, "neutral": 33 },
+    "category": "Fintech",
+    "tags": ["fintech", "africa", "mobile-money", "stablecoins"],
+    "publishedAt": "2026-04-20T10:00:00Z",
+    "nicheCount": 3
+  }
+}

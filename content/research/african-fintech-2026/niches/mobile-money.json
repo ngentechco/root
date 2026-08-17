@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "topic": "mobile-money",
+  "description": "Mobile money platforms (M-Pesa, MTN MoMo, Airtel Money) and agent networks",
+  "from": 2010,
+  "to": 2026,
+  "reliabilityScore": 0.9,
+  "sentiment": "Bullish",
+  "keyFindings": [
+    "Sub-Saharan Africa leads global mobile-money transaction volume",
+    "Agent networks drive financial inclusion in rural corridors"
+  ]
+}

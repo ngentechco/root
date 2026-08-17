@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "topic": "personalized-learning",
+  "description": "AI-driven personalized learning paths",
+  "from": 2012,
+  "to": 2026,
+  "reliabilityScore": 0.8,
+  "sentiment": "Bullish",
+  "keyFindings": [
+    "Personalization lifts completion and retention metrics"
+  ]
+}

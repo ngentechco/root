@@ -1,0 +1,39 @@
+# NGENTECH — llms.txt
+
+> The future of technology with deep research.
+
+NGENTECH (ngentech.co) is a technology research organization. We build Clerk, an S-Rank deep research agent, and ACAD, an AI-powered learning platform.
+
+## Key pages
+
+- [Home](https://ngentech.co/)
+- [About](https://ngentech.co/about)
+- [Contact](https://ngentech.co/contact)
+- [Newsletter](https://ngentech.co/newsletter)
+- [Blog](https://ngentech.co/blog)
+- [RSS](https://ngentech.co/rss.xml)
+
+## Products
+
+- [Clerk — S-Rank Deep Research Agent](https://ngentech.co/clerk)
+- [Clerk Features](https://ngentech.co/clerk/features)
+- [Clerk Architecture](https://ngentech.co/clerk/architecture)
+- [Clerk How It Works](https://ngentech.co/clerk/how-it-works)
+- [Clerk Tech Stack](https://ngentech.co/clerk/tech-stack)
+- [Clerk Use Cases](https://ngentech.co/clerk/use-cases)
+- [Clerk API Reference](https://ngentech.co/clerk/api)
+- [Clerk FAQ](https://ngentech.co/clerk/faq)
+- [ACAD — One Platform for Academic Excellence](https://ngentech.co/acad)
+- [ACAD Features](https://ngentech.co/acad/features)
+- [ACAD Learning Paths](https://ngentech.co/acad/learning-paths)
+- [ACAD FAQ](https://ngentech.co/acad/faq)
+
+## Research library
+
+- [Research Reports](https://ngentech.co/research)
+- [Research Topics](https://ngentech.co/research/topics)
+
+## Legal
+
+- [Privacy Policy](https://ngentech.co/legal/privacy)
+- [Terms of Service](https://ngentech.co/legal/terms)

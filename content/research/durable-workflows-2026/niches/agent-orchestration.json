@@ -1,0 +1,13 @@
+{
+  "id": 2,
+  "topic": "agent-orchestration",
+  "description": "Durable execution in multi-agent AI systems",
+  "from": 2021,
+  "to": 2026,
+  "reliabilityScore": 0.85,
+  "sentiment": "Bullish",
+  "keyFindings": [
+    "Checkpointed agent workflows dominate production LLM pipelines",
+    "Rate-limit isolation is the top durable-execution win for scraping workloads"
+  ]
+}

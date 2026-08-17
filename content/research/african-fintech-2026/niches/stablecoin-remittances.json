@@ -1,0 +1,13 @@
+{
+  "id": 2,
+  "topic": "stablecoin-remittances",
+  "description": "Stablecoin-based cross-border remittance corridors",
+  "from": 2019,
+  "to": 2026,
+  "reliabilityScore": 0.83,
+  "sentiment": "Bullish",
+  "keyFindings": [
+    "USDC and USDT rails undercut traditional transfer fees by 60-80%",
+    "Dollar-backed stablecoins dominate corridor volume"
+  ]
+}

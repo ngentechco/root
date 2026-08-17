@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "topic": "multi-agent-systems",
+  "description": "Architectures and orchestration for multiple LLM agents",
+  "from": 2018,
+  "to": 2026,
+  "reliabilityScore": 0.86,
+  "sentiment": "Bullish",
+  "keyFindings": [
+    "Map-reduce and hierarchical patterns dominate production use"
+  ]
+}

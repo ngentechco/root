@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "topic": "temporal-vs-actors",
+  "description": "Temporal.io vs actor-model systems for long-running workflows",
+  "from": 2019,
+  "to": 2026,
+  "reliabilityScore": 0.87,
+  "sentiment": "Bullish",
+  "keyFindings": [
+    "Deterministic replay gives Temporal an edge in auditability",
+    "Actor systems excel at low-latency but struggle with week-long tasks"
+  ]
+}

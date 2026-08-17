@@ -1,0 +1,16 @@
+{
+  "report": {
+    "id": "research-example-2026",
+    "slug": "example-2026",
+    "topic": "Example Topic",
+    "timeframe": { "from": 2015, "to": 2026 },
+    "status": "completed",
+    "totalNiches": 100,
+    "completedNiches": 100,
+    "avgReliabilityScore": 0.85,
+    "sentimentDistribution": { "bullish": 50, "bearish": 15, "neutral": 35 },
+    "category": "Artificial Intelligence",
+    "tags": ["example", "research"],
+    "publishedAt": "2026-01-01T00:00:00Z"
+  }
+}

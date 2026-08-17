@@ -1,0 +1,13 @@
+{
+  "id": 3,
+  "topic": "defi-lending-protocols",
+  "description": "DeFi lending and borrowing market structure",
+  "from": 2017,
+  "to": 2026,
+  "reliabilityScore": 0.85,
+  "sentiment": "Neutral",
+  "keyFindings": [
+    "Total value locked correlates with market cycles",
+    "Liquid staking emerged as dominant collateral"
+  ]
+}

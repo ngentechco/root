@@ -1,0 +1,13 @@
+{
+  "id": 3,
+  "topic": "regulatory-landscape",
+  "description": "Central bank policies, licensing, and sandboxes across African markets",
+  "from": 2012,
+  "to": 2026,
+  "reliabilityScore": 0.78,
+  "sentiment": "Neutral",
+  "keyFindings": [
+    "Over 20 markets operate or pilot digital-currency frameworks",
+    "Licensing fragmentation remains the top cross-border barrier"
+  ]
+}

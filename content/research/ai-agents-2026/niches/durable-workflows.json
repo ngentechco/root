@@ -1,0 +1,12 @@
+{
+  "id": 2,
+  "topic": "durable-workflows",
+  "description": "Durable execution for long-running agent tasks",
+  "from": 2020,
+  "to": 2026,
+  "reliabilityScore": 0.9,
+  "sentiment": "Bullish",
+  "keyFindings": [
+    "Temporal-style workflows solve restart resilience"
+  ]
+}

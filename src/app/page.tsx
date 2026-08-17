@@ -1,80 +1,188 @@
-'use client';
-
-import { useEffect, useState } from 'react';
+import Link from 'next/link'
+import { siteConfig } from '@/lib/data/site'
+import { clerkData } from '@/lib/data/clerk'
+import { acadData } from '@/lib/data/acad'
+import { getAllResearch } from '@/lib/data/research'
+import { getAllPosts } from '@/lib/data/blog'
+import { Reveal } from '@/components/Reveal'
+import { NewsletterSignup } from '@/components/NewsletterSignup'
+import { formatDate } from '@/lib/data/site'
+import { mdToPlain } from '@/lib/markdown'
 
 export default function Home() {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setLoaded(true);
-  }, []);
+  const reports = getAllResearch().slice(0, 3)
+  const posts = getAllPosts().slice(0, 3)
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Background Grid */}
-      <div className="fixed inset-0 grid-bg opacity-60" />
-
-      {/* Radial Glow */}
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_70%)]" />
-
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-5">
-        <div className="flex items-center justify-between max-w-6xl mx-auto">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 border border-white/30" />
-            <span className="text-xs tracking-[0.25em] uppercase text-white/50">Ngentech</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-white/40 rounded-full" />
-            <span className="text-[10px] tracking-[0.2em] uppercase text-white/30">Online</span>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4">
-        
-        {/* Tagline */}
-        <div className={`mb-8 transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="text-xs tracking-[0.3em] uppercase text-white/40">
+    <>
+      {/* Hero */}
+      <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 text-center">
+        <Reveal>
+          <p className="eyebrow justify-center mb-8">
+            <span className="w-2 h-2 rounded-full bg-white/40 animate-pulse" />
             Tech Research Co.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Coming Soon */}
-        <h1 className={`text-[15vw] sm:text-[12vw] font-bold text-center leading-none tracking-tight transition-all duration-1000 delay-200 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <span className="animate-glow">COMING</span>
-        </h1>
-        <h1 className={`text-[15vw] sm:text-[12vw] font-bold text-center leading-none tracking-tight transition-all duration-1000 delay-400 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <span className="animate-glow">SOON</span>
-        </h1>
+        <Reveal delay={150}>
+          <h1 className="font-display font-black text-[15vw] sm:text-[11vw] leading-none tracking-tight">
+            <span className="block animate-glow">NGENTECH</span>
+          </h1>
+        </Reveal>
 
-        {/* Simple Line */}
-        <div className={`mt-12 w-32 h-px bg-white/20 transition-all duration-1000 delay-600 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-x-0'}`} />
-
-        {/* Social */}
-        <div className={`mt-12 flex gap-6 transition-all duration-1000 delay-800 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <a href="https://x.com/ngentechco" className="w-10 h-10 border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-          </a>
-          <a href="https://github.com/ngentechco" className="w-10 h-10 border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="relative z-10 px-6 py-6">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[10px] tracking-[0.2em] text-white/20 uppercase">
-            © 2026 Ngentech Co. All rights reserved.
+        <Reveal delay={300}>
+          <p className="mt-6 text-white/50 max-w-2xl text-lg">
+            {siteConfig.tagline}. We build Clerk, an S-Rank deep research agent, and ACAD, an
+            AI-powered learning platform.
           </p>
+        </Reveal>
+
+        <Reveal delay={450}>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Link href="/clerk" className="btn-primary">Explore Clerk</Link>
+            <Link href="/acad" className="btn-secondary">Discover ACAD</Link>
+          </div>
+        </Reveal>
+
+        <Reveal delay={600}>
+          <div className="mt-20 flex items-center gap-3 text-white/30">
+            <span className="w-px h-4 bg-white/30" />
+            <span className="text-[10px] tracking-[0.3em] uppercase">Deep Research · AI Learning · The Future</span>
+            <span className="w-px h-4 bg-white/30" />
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Products */}
+      <section className="relative z-10 py-24">
+        <div className="container-x">
+          <Reveal>
+            <p className="label mb-2">Ecosystem</p>
+            <h2 className="font-display font-bold text-4xl md:text-5xl">Built by Ngentech</h2>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {[
+              {
+                name: clerkData.name,
+                tagline: clerkData.tagline,
+                description: clerkData.description,
+                href: '/clerk',
+                hrefLabel: 'Explore Clerk',
+                status: clerkData.status,
+              },
+              {
+                name: acadData.name,
+                tagline: acadData.tagline,
+                description: acadData.description,
+                href: '/acad',
+                hrefLabel: 'Discover ACAD',
+                status: acadData.status,
+              },
+            ].map((p, i) => (
+              <Reveal key={p.name} delay={i * 120}>
+                <Link href={p.href} className="card card-hover block h-full p-8 md:p-10">
+                  <div className="flex items-start justify-between gap-4 mb-8">
+                    <h3 className="font-display font-black text-4xl">{p.name}</h3>
+                    <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/40">
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/50 animate-pulse" />
+                      {p.status}
+                    </span>
+                  </div>
+                  <p className="text-sm uppercase tracking-[0.25em] text-white/40 mb-3">{p.tagline}</p>
+                  <p className="text-white/60 leading-relaxed">{p.description}</p>
+                  <span className="mt-8 inline-block text-xs uppercase tracking-[0.2em] text-white/70 group-hover:text-white">
+                    {p.hrefLabel} →
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
-      </footer>
-    </div>
-  );
+      </section>
+
+      {/* Featured Research */}
+      <section className="relative z-10 py-24 border-t border-white/8">
+        <div className="container-x">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="label mb-2">Research Library</p>
+                <h2 className="font-display font-bold text-4xl md:text-5xl">Featured Reports</h2>
+              </div>
+              <Link href="/research" className="btn-ghost text-xs">View all →</Link>
+            </div>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {reports.map((r, i) => (
+              <Reveal key={r.slug} delay={i * 120}>
+                <Link href={`/research/${r.slug}`} className="card card-hover block h-full p-6">
+                  <p className="label mb-3">{r.category}</p>
+                  <h3 className="font-display font-bold text-2xl mb-3">{r.topic}</h3>
+                  <p className="text-sm text-white/50 line-clamp-3">{mdToPlain(r.summary, 160)}</p>
+                  <div className="mt-6 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-white/30">
+                    <span>{formatDate(r.publishedAt)}</span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <span className="w-1 h-1 rounded-full bg-white/40" />
+                      {r.avgReliabilityScore.toFixed(2)} reliability
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog */}
+      <section className="relative z-10 py-24 border-t border-white/8">
+        <div className="container-x">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="label mb-2">Insights</p>
+                <h2 className="font-display font-bold text-4xl md:text-5xl">From the Blog</h2>
+              </div>
+              <Link href="/blog" className="btn-ghost text-xs">All posts →</Link>
+            </div>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {posts.map((p, i) => (
+              <Reveal key={p.slug} delay={i * 120}>
+                <Link href={`/blog/${p.slug}`} className="card card-hover block h-full p-6">
+                  <p className="label mb-3">{p.category}</p>
+                  <h3 className="font-display font-bold text-xl mb-3 leading-snug">{p.title}</h3>
+                  <p className="text-sm text-white/50 line-clamp-3">{p.excerpt}</p>
+                  <p className="mt-6 text-[10px] uppercase tracking-[0.2em] text-white/30">
+                    {formatDate(p.date)} · {p.readingMinutes} min read
+                  </p>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="relative z-10 py-24 border-t border-white/8">
+        <div className="container-x text-center">
+          <Reveal>
+            <p className="label mb-3">Signal, not noise</p>
+            <h2 className="font-display font-bold text-4xl md:text-5xl">Join the Newsletter</h2>
+            <p className="mt-4 text-white/50 max-w-xl mx-auto">
+              Deep research insights, product updates, and the future of technology — straight to
+              your inbox.
+            </p>
+          </Reveal>
+          <Reveal delay={150}>
+            <div className="mt-10 max-w-xl mx-auto">
+              <NewsletterSignup />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </>
+  )
 }

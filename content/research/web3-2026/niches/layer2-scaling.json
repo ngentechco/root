@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "topic": "layer2-scaling",
+  "description": "Layer 2 scaling solutions for blockchain",
+  "from": 2014,
+  "to": 2026,
+  "reliabilityScore": 0.92,
+  "sentiment": "Bullish",
+  "keyFindings": [
+    "Plasma was introduced in 2017",
+    "Optimism launched in 2019",
+    "Arbitrum launched in 2021"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": 2,
+  "topic": "zkp-origins",
+  "description": "Zero-knowledge proofs: origins and applications",
+  "from": 2010,
+  "to": 2026,
+  "reliabilityScore": 0.88,
+  "sentiment": "Bullish",
+  "keyFindings": [
+    "ZK proofs formalized in the 1980s, practical since 2010",
+    "zk-Rollups dominate L2 activity by 2024"
+  ]
+}

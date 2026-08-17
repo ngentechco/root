@@ -1,0 +1,17 @@
+{
+  "report": {
+    "id": "research-ai-agents-2026",
+    "slug": "ai-agents-2026",
+    "topic": "AI Agents",
+    "timeframe": { "from": 2015, "to": 2026 },
+    "status": "completed",
+    "totalNiches": 100,
+    "completedNiches": 94,
+    "avgReliabilityScore": 0.82,
+    "sentimentDistribution": { "bullish": 60, "bearish": 10, "neutral": 30 },
+    "category": "Artificial Intelligence",
+    "tags": ["ai", "agents", "llm"],
+    "publishedAt": "2026-04-05T09:00:00Z",
+    "nicheCount": 2
+  }
+}

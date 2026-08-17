@@ -1,0 +1,17 @@
+{
+  "report": {
+    "id": "research-durable-workflows-2026",
+    "slug": "durable-workflows-2026",
+    "topic": "Durable Workflows",
+    "timeframe": { "from": 2018, "to": 2026 },
+    "status": "completed",
+    "totalNiches": 70,
+    "completedNiches": 70,
+    "avgReliabilityScore": 0.84,
+    "sentimentDistribution": { "bullish": 48, "bearish": 9, "neutral": 43 },
+    "category": "Developer Tools",
+    "tags": ["workflows", "temporal", "agents", "infrastructure"],
+    "publishedAt": "2026-04-28T09:30:00Z",
+    "nicheCount": 2
+  }
+}

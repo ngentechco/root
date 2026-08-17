@@ -1,0 +1,17 @@
+{
+  "report": {
+    "id": "research-ai-education-2026",
+    "slug": "ai-education-2026",
+    "topic": "AI in Education",
+    "timeframe": { "from": 2012, "to": 2026 },
+    "status": "completed",
+    "totalNiches": 60,
+    "completedNiches": 60,
+    "avgReliabilityScore": 0.78,
+    "sentimentDistribution": { "bullish": 50, "bearish": 15, "neutral": 35 },
+    "category": "Artificial Intelligence",
+    "tags": ["ai", "education", "learning"],
+    "publishedAt": "2026-04-12T08:00:00Z",
+    "nicheCount": 1
+  }
+}
