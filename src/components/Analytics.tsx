@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
 
 declare global {
   interface Window {
@@ -11,7 +12,7 @@ declare global {
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 
-export function Analytics() {
+function GoogleAnalytics() {
   useEffect(() => {
     if (!GA_ID) return
 
@@ -30,4 +31,13 @@ export function Analytics() {
   }, [])
 
   return null
+}
+
+export function Analytics() {
+  return (
+    <>
+      <GoogleAnalytics />
+      <VercelAnalytics />
+    </>
+  )
 }
